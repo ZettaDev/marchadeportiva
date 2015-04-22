@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8" collation="utf8_general_ci">marchadeportivanueva</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="cronicas" view="colnames">
+<left>259</left>
+<top>16</top>
+<width>103</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `cronicas` (
+  `id` int(11) NOT NULL,
+  `partido_id` int(11) NOT NULL,
+  `cronica` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `partido_id` (`partido_id`),
+  CONSTRAINT `cronicas_ibfk_1` FOREIGN KEY (`partido_id`) REFERENCES `partidos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="deportes" view="colnames">
+<left>567</left>
+<top>402</top>
+<width>117</width>
+<height>109</height>
+<sql_create_table>CREATE TABLE `deportes` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="equipos" view="colnames">
+<left>328</left>
+<top>340</top>
+<width>134</width>
+<height>178</height>
+<sql_create_table>CREATE TABLE `equipos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `estadio` varchar(100) NOT NULL,
+  `dirección` varchar(200) NOT NULL,
+  `gps` text NOT NULL,
+  `deporte_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `deporte_id` (`deporte_id`),
+  CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`deporte_id`) REFERENCES `deportes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="jornadas" view="colnames">
+<left>318</left>
+<top>167</top>
+<width>141</width>
+<height>146</height>
+<sql_create_table>CREATE TABLE `jornadas` (
+  `id` int(11) NOT NULL,
+  `numero_jornada` int(3) NOT NULL,
+  `fecha` date NOT NULL,
+  `temporada_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `temporada_id` (`temporada_id`),
+  CONSTRAINT `jornadas_ibfk_1` FOREIGN KEY (`temporada_id`) REFERENCES `temporadas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="temporadas" view="colnames">
+<left>545</left>
+<top>69</top>
+<width>128</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `temporadas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `liga_id` int(11) NOT NULL,
+  `num_jornadas` int(3) NOT NULL,
+  `num_vueltas` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `liga_id` (`liga_id`),
+  CONSTRAINT `temporadas_ibfk_1` FOREIGN KEY (`liga_id`) REFERENCES `ligas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="partidos" view="colnames">
+<left>20</left>
+<top>191</top>
+<width>156</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `partidos` (
+  `id` int(11) NOT NULL,
+  `jornada_id` int(11) NOT NULL,
+  `equipo_local_id` int(11) NOT NULL,
+  `equipo_visitante_id` int(11) NOT NULL,
+  `resultado_local` int(3) NOT NULL,
+  `resultado_visitante` int(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `equipo_local_id` (`equipo_local_id`),
+  KEY `equipo_visitante_id` (`equipo_visitante_id`),
+  KEY `jornada_id` (`jornada_id`),
+  CONSTRAINT `partidos_ibfk_3` FOREIGN KEY (`jornada_id`) REFERENCES `jornadas` (`id`),
+  CONSTRAINT `partidos_ibfk_1` FOREIGN KEY (`equipo_local_id`) REFERENCES `equipos` (`id`),
+  CONSTRAINT `partidos_ibfk_2` FOREIGN KEY (`equipo_visitante_id`) REFERENCES `equipos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="ligas" view="colnames">
+<left>745</left>
+<top>22</top>
+<width>134</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `ligas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `puntos_ganar` int(2) NOT NULL,
+  `puntos_perder` int(2) NOT NULL,
+  `puntos_empate` int(2) NOT NULL,
+  `ordenamiento` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
