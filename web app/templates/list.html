@@ -1,13 +1,22 @@
 <div class="row">
-    <div class="panel-body">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="dato in cronicas">
-                <a href="#/edit/{{dato.id}}">{{dato.cronica}}</a>
-                <div class="pull-right action-buttons">
-                    <a href="#/edit/{{dato.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a ng-click="remove(dato.id)" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+        <h1 class="text-center">Listado de cronicas</h1>
+        <div class="list-group">
+          <a href="#/edit/{{dato.id}}" class="list-group-item" ng-repeat="dato in cronicas">
+                <div class="media col-md-3">
+                    <figure class="pull-left">
+                        <img class="media-object img-rounded img-responsive"  src="http://www.lacomarcadepuertollano.com/diario/2008_10_06/miniaturas/350X/2008_10_06_No_02-puerto.jpg" alt="placehold.it/350x250" >
+                    </figure>
                 </div>
-            </li>
-        </ul>
+                <div class="col-md-6">
+                    <p class="list-group-item-text">
+                        {{dato.cronica}}
+                    </p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2> Acciones </h2>
+                    <button href="#/edit/{{dato.id}}" role="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <button ng-click="remove(dato.id)" class="btn btn-default btn-lg btn-block trash" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+          </a>
+        </div>
     </div>
-</div>

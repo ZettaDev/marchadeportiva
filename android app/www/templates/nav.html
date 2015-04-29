@@ -1,24 +1,30 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">
+<div class="nav-side-menu">
+    <div class="brand">
         <img alt="Brand" src="./img/LogoMarchaDeportiva.png" width="35%">
-      </a>
     </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar-brand-centered">
-      <ul class="nav navbar-nav">
-        <li><a href="#/home">List</a></li>
-        <li><a href="#/create">Add</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <div class="menu-list">
+
+            <ul id="menu-content" class="menu-content collapse out">
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#/home"><i class="fa fa-globe fa-lg"></i> Cronicas <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li><a href="#/home">List</a></li>
+                    <li><a href="#/create">Add</a></li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Resultados <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="service">
+                  <li>Clasificacion</li>
+                  <li>Jornada</li>
+                  <li>Partido</li>
+                </ul>
+            </ul>
+     </div>
+</div>
