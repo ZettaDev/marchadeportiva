@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">
+            Jornada {{datos.jornada}} Fecha {{datos.fecha}}
+        </h3>
+    </div>
+    <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>Local</th>
+                    <th>Visitante</th>
+                    <th>Resultado</th>
+                    <th>Estadio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="partido in datos.partidos">
+                    <td data-title="Local">{{partido.local}}</td>
+                    <td data-title="Visitante">{{partido.visitante}}</td>
+                    <td data-title="Resultado">{{partido.resultado}}</td>
+                    <td data-title="Estadio">{{partido.estadio}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

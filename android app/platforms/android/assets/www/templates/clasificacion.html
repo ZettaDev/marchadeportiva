@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">
+            Clasificacion {{datos.tipo}}
+        </h3>
+    </div>
+    <div id="no-more-tables">
+        <table class="col-md-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>Posision</th>
+                    <th>Equipo</th>
+                    <th>Partidos Jugados</th>
+                    <th>Partidos Ganados</th>
+                    <th>Partidos Empatados</th>
+                    <th>Partidos Perdidos</th>
+                    <th>Goles a Fabor</th>
+                    <th>Goles en Contra</th>
+                    <th>Dif</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="equipo in datos.clasificacion track by $index">
+                    <td data-title="Posicion">{{$index + 1}} - {{equipo.pos}}</td>
+                    <td data-title="Equipo">{{equipo.equipo}}</td>
+                    <td data-title="Partidos Jugados">{{equipo.pj}}</td>
+                    <td data-title="Partidos Ganados">{{equipo.pg}}</td>
+                    <td data-title="Partidos Empatados">{{equipo.pe}}</td>
+                    <td data-title="Partidos Perdidos">{{equipo.pp}}</td>
+                    <td data-title="Goles a Fabor">{{equipo.gf}}</td>
+                    <td data-title="Goles en Contra">{{equipo.gc}}</td>
+                    <td data-title="Dif">{{equipo.dif}}</td>
+                    <td data-title="Puntos">{{equipo.puntos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
