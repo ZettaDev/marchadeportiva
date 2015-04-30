@@ -92,11 +92,11 @@ var app = angular.module("app",["ngRoute","ngResource"])
 
 }])
 .factory('Cronicas', function ($resource) {
-    return $resource("http://localhost/fct/api-ajs/public/cronicas/:id", {id:"@_id"}, {
+    return $resource("http://api.zettadev.net/v1/public/index.php/cronicas/:id", {id:"@_id"}, {
         update: {method: "PUT", params: {id: "@id"}}
     })
 })
 .factory('Resultados', function ($resource) {
-    return $resource("http://localhost/fct/api-ajs/public/datos/:id", {id:"@_id"}, {
+    return $resource("http://api.zettadev.net/v1/public/index.php/datos/:id", {id:"@_id"}, {
     })
 })
