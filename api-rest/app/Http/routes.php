@@ -25,3 +25,4 @@ Route::get("cronicas/{id}", "CronicasController@show");
 Route::post("cronicas", "CronicasController@store");
 Route::put("cronicas/{id}", "CronicasController@update");
 Route::delete("cronicas/{id}", "CronicasController@destroy");
+Route::get("datos/{id}", "DatosController@show");
