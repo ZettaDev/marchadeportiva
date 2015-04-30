@@ -6,7 +6,7 @@
         "clasificacion": [
             {
                 "equipo": "Buzanada",
-                "pos": 1,
+                "pos": "↑",
                 "pj": 36,
                 "pg": 20,
                 "pe": 11,
@@ -18,7 +18,7 @@
             },
             {
                 "equipo": "San Isidro",
-                "pos": -1,
+                "pos": "↓",
                 "pj": 35,
                 "pg": 21,
                 "pe": 6,
@@ -30,7 +30,7 @@
             },
             {
                 "equipo": "Cruz Santa",
-                "pos": 0,
+                "pos": "•",
                 "pj": 35,
                 "pg": 17,
                 "pe": 11,
@@ -42,7 +42,7 @@
             },
             {
                 "equipo": "Gomera",
-                "pos": 0,
+                "pos": "•",
                 "pj": 35,
                 "pg": 16,
                 "pe": 10,
@@ -54,7 +54,7 @@
             },
             {
                 "equipo": "Charco Pino",
-                "pos": 1,
+                "pos": "↑",
                 "pj": 35,
                 "pg": 16,
                 "pe": 7,

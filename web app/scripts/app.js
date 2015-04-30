@@ -10,6 +10,12 @@ var app = angular.module("app",["ngRoute","ngResource"])
     }).when('/create', {
         templateUrl: 'templates/create.html',
         controller: 'CreateCtrl'
+    }).when('/resultados/jornada', {
+        templateUrl: 'templates/jornada.html',
+        controller: 'JornadaCtrl'
+    }).when('/resultados/clasificacion', {
+        templateUrl: 'templates/clasificacion.html',
+        controller: 'ClasificacionCtrl'
     }).otherwise({ redirectTo:'/home'});
 }
 ])
@@ -71,8 +77,26 @@ var app = angular.module("app",["ngRoute","ngResource"])
     }
 
 }])
+.controller('JornadaCtrl',['$scope','Resultados', '$routeParams', function($scope, Resultados, $routeParams) {
+
+    Resultados.get({id:2}, function(data){
+        $scope.datos = data.datos;
+    })
+
+}])
+.controller('ClasificacionCtrl',['$scope','Resultados', '$routeParams', function($scope, Resultados, $routeParams) {
+
+    Resultados.get({id:3}, function(data){
+        $scope.datos = data.datos;
+    })
+
+}])
 .factory('Cronicas', function ($resource) {
-    return $resource("http://api.zettadev.net/v1/public/index.php/cronicas/:id", {id:"@_id"}, {
+    return $resource("http://localhost/fct/api-ajs/public/cronicas/:id", {id:"@_id"}, {
         update: {method: "PUT", params: {id: "@id"}}
+    })
+})
+.factory('Resultados', function ($resource) {
+    return $resource("http://localhost/fct/api-ajs/public/datos/:id", {id:"@_id"}, {
     })
 })
