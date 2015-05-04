@@ -25,6 +25,10 @@ var app = angular.module("app",["ngRoute","ngResource"])
         $scope.cronicas = data.cronicas;
     })
 
+    // Run function every 20 second
+    $scope.realoadData = function(){ $route.reload(); };
+    setInterval($scope.realoadData, 20000);
+
     $scope.remove = function(id){
         Cronicas.delete({id:id}).$promise.then(function(data){
             if(data.msg){
