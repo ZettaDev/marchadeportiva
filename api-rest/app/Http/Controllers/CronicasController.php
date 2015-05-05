@@ -33,6 +33,7 @@ class CronicasController extends Controller {
         $cronica = new \App\Models\Cronica();
         $cronica->cronica = $request->cronica;
         $cronica->save();
+        Event::fire(new CronicaUpdates());
         return response()->json([
             "msg" => "Success",
             "id" => $cronica->id
@@ -68,6 +69,7 @@ class CronicasController extends Controller {
 
         $cronica->cronica = $request->cronica;
         $cronica->save();
+        Event::fire(new CronicaUpdates());
         return response()->json([
             "msg" => "Success"
         ],200);
@@ -84,6 +86,7 @@ class CronicasController extends Controller {
         //
         $cronica = \App\Models\Cronica::find($id);
         $cronica->delete();
+        Event::fire(new CronicaUpdates());
         return response()->json([
             "msg" => "Success"
         ],200);
